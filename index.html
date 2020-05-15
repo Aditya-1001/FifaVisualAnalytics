@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title> Fifa Players Analytics </title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="w3.css">
+	<link rel="stylesheet" href="project.css">
+    <script src="d3.v5.min.js" charset="utf-8"></script>
+    <script src="d3-scale-chromatic.v1.min.js"></script>
+
+    <script src="d3.tip.v0.6.3.js"></script>
+	<link rel="stylesheet" href="main.css">
+        
+        <style>
+            
+        .slidecontainer {
+          width: 10%;
+          margin-left: 200px;
+          margin-top: 300px;
+        }
+
+        .slider {
+          -webkit-appearance: none;
+          width: 100%;
+          height: 25px;
+          border-radius: 5px;
+          background: black !important;
+          outline: none;
+          opacity: 0.7;
+          align: center;
+          -webkit-transition: .2s;
+          transition: opacity .2s;
+        }
+
+        .slider:hover {
+          opacity: 1;
+        }
+
+        .slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          background: black !important;
+          cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+          width: 25px;
+          height: 25px;
+          background: black !important;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+        </style>
+
+        
+</head>
+
+<body style="background-color: #E6E6FA;">
+<!--   	<h1 style="background-color: black; color:white";>Vizualization Assignment 1</h1>-->
+<div>
+    
+	
+   
+<!--<p>-->
+<!--  <label># bins</label>-->
+<!--  <input type="number" min="1" max="100" step="30" value="20" id="nBin">-->
+<!--</p>-->
+
+<!--<div id="my_dataviz"></div>-->
+
+  	<div style="text-align:center;" class="slidecontainer">
+  		
+  			<input type="range" min="1" max="15" value="5" class="slider" margin-left="50%" margin-top="80%" id="myRange">
+<!-- 
+  			<p>Feature - <span id = "x_feature"></span></p>
+  			<p>Minimum - 0</p>
+  			<p>Maximum - <span id="x-axis-max"></span></p>
+  			<br/>
+  			<p>Minimum - 0</p>
+  			<p>Maximum - <span id="y-axis-max"></span></p> -->
+  	</div>
+  	<!-- <div id="bar" >
+	  	<svg id="main_bar_svg" width="900px" height="1000px"/>
+  	</div> -->
+<!--    <div id = "pie" ></div>-->
+<!--    <div id = "force" ></div>-->
+</div>
+</div>
+<div id="w3-container">
+    <select></select>
+</div>
+</body>
+<!--<script src="bootstrap.min.js"></script>-->
+
+	<script src="barchart2.js"></script>
+	<script src="index2.js"></script>
+<!--	<script src="piechart.js"></script>-->
+<!--	<script src="forcechart.js"></script>-->
+	<script src="changeBinCount.js"></script>
+
+</html>

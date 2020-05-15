@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+    
+<title>W3.CSS Template</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="bootstrap.min.css">
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="project.css">
+        
+    <script src="d3.v5.min.js" charset="utf-8"></script>
+    <script src="d3-scale-chromatic.v1.min.js"></script>
+
+    <script src="d3.tip.v0.6.3.js"></script>
+    
+    <link rel="stylesheet" href="main.css">
+    
+<style>
+<!--html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}-->
+
+.slidecontainer {
+  width: 10%;
+  margin-left: 100px;
+  margin-top: 500px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 15px;
+  background: black !important;
+  outline: black !important;
+  opacity: 0.7;
+  margin-left: 100%;
+   margin-top: 100%;
+  align: center;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 0.5;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: aqua !important;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+.centerDiv{
+  width: 250px;
+  border-radius: 15px;
+  background: #ccc;
+  padding: 10px;
+  height: 50px;
+  position: absolute;
+  margin-top: 5px;
+  margin-left: 400px;
+  top: 50%;
+  left: 50%;
+}
+
+</style>
+<body class="w3-light-grey" >
+
+<!-- Top container -->
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+  <span class="w3-bar-item w3-left">Visual Analytics</span>
+
+  <span class="w3-bar-item w3-right">Assignment 1</span>
+</div>
+<div id="my_dataviz"></div>
+
+      <div style="text-align:center; margin-left:1100px; margin-top:500px" class="slidecontainer">
+          
+              <input type="range" min="1" max="15" value="5" style=" margin-left:100px; margin-top:200px" class="slider"  id="myRange">
+<!--
+              <p>Feature - <span id = "x_feature"></span></p>
+              <p>Minimum - 0</p>
+              <p>Maximum - <span id="x-axis-max"></span></p>
+              <br/>
+              <p>Minimum - 0</p>
+              <p>Maximum - <span id="y-axis-max"></span></p> -->
+      </div>
+<!-- Sidebar/menu -->
+<!--<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>-->
+<!--  <div class="w3-container w3-row">-->
+<!--    <div class="w3-col s4">-->
+<!--      <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">-->
+<!--    </div>-->
+<!--    -->
+<!--  </div>-->
+<!--  <hr>-->
+<!--  <div class="w3-container">-->
+<!--    <h5>Dashboard</h5>-->
+<!--  </div>-->
+<!--  -->
+<!--  <div class="w3-bar-block">-->
+<!--    -->
+<!--    -->
+<!--</nav>-->
+</div>
+<div id="w3-container" class="centerDiv" style="margin-left: -700px; margin-top: -80px" style="background-color: black">
+    <select>
+<!--    <option  value="none" selected disabled hidden> Select </option>-->
+    </select>
+</div>
+
+<!--<!-- Overlay effect when opening sidebar on small screens -->
+<!--<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>-->
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+  <!-- Header -->
+  <header class="w3-container" style="padding-top:5px; margin-top:-500px; margin-left:-240px">
+    <h3 style="font-size-adjust: 50%"><b><i class="fa fa-dashboard" style="align-top:10px;"></i><strong> Lab 1 Dashboard </strong></b></h3>
+  </header>
+
+  <div class="w3-row-padding w3-margin-bottom" style="margin-left:-250px; margin-right:40px" id="w3-container">
+    <div class="w3-quarter" id="Wage" onclick="Wage_ftr()">
+      <div class="w3-container w3-orange w3-padding-16"  style="border-radius: 15px">
+<!--<button type="button" class="btn btn-primary btn-lg" style="margin-left: 90px">Primary</button>-->
+        <h4>Wage</h4>
+      </div>
+    </div>
+    
+    <div class="w3-quarter" onclick="Region_ftr()">
+      <div class="w3-container w3-red
+          
+          w3-padding-16" style="border-radius: 15px">
+        
+        <h4>Region</h4>
+      </div>
+    </div>
+    <div class="w3-quarter" onclick="Skill_ftr()">
+      <div class="w3-container w3-teal w3-padding-16" style="border-radius: 15px">
+        
+        <h4>Skill_Moves</h4>
+      </div>
+    </div>
+    <div class="w3-quarter" onclick="Nationality_ftr()">
+      <div class="w3-container w3-blue w3-text-white w3-padding-16" style="border-radius: 15px">
+        
+        <h4>Nationality</h4>
+      </div>
+    </div>
+  
+  <div class="w3-panel">
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-third">
+<!--        <h5>Regions</h5>-->
+      </div>
+      
+    </div>
+  </div>
+  </div>
+  
+  <div onmousedown="WhichButton(event)">
+    
+  <div id="visual_area"></div>
+
+ 
+<!--  <div class="w3-container w3-dark-grey w3-padding-32">-->
+<!--    <div class="w3-row">-->
+<!--      -->
+<!--    </div>-->
+<!--  </div>-->
+
+  
+</div>
+  </div>
+
+<!--<script>-->
+<!--// Get the Sidebar-->
+<!--var mySidebar = document.getElementById("mySidebar");-->
+<!---->
+<!--// Get the DIV with overlay effect-->
+<!--var overlayBg = document.getElementById("myOverlay");-->
+<!---->
+<!--// Toggle between showing and hiding the sidebar, and add overlay effect-->
+<!--function w3_open() {-->
+<!--  if (mySidebar.style.display === 'block') {-->
+<!--    mySidebar.style.display = 'none';-->
+<!--    overlayBg.style.display = "none";-->
+<!--  } else {-->
+<!--    mySidebar.style.display = 'block';-->
+<!--    overlayBg.style.display = "block";-->
+<!--  }-->
+<!--}-->
+<!---->
+<!--// Close the sidebar with the close button-->
+<!--function w3_close() {-->
+<!--  mySidebar.style.display = "none";-->
+<!--  overlayBg.style.display = "none";-->
+<!--}-->
+<!--</script>-->
+
+<script src="barchart2.js"></script>
+    <script src="index2.js"></script>
+<!--    <script src="piechart.js"></script>-->
+<!--    <script src="forcechart.js"></script>-->
+    <script src="changeBinCount.js"></script>
+
+</body>
+</html>
